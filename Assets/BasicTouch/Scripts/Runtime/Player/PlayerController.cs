@@ -6,8 +6,13 @@ using UnityEngine;
 
 namespace BasicTouch.Runtime.Player
 {
+    /// <summary>
+    /// Manages the player movement and interaction system
+    /// </summary>
     public class PlayerController : MonoBehaviour
     {
+        #region Fields
+
         [Header("References")]
         [SerializeField] private PlayerProperties m_PlayerData;
         [SerializeField] private PlayerInputHandler m_PlayerInputHandler;
@@ -16,37 +21,52 @@ namespace BasicTouch.Runtime.Player
         [Header("Interaction Settings")]
         [SerializeField] private SphereCollider m_SphereCollider;
         [SerializeField] private float m_InteractionRange;
-        private List<IInteractable> m_currentInteractableList;
-        private IInteractable m_currentInteractable;
 
-        private Vector3 m_movementDirection;
-        private Camera m_mainCamera;
+        private List<IInteractable> m_CurrentInteractableList;
+        private IInteractable m_CurrentInteractable;
+        private Vector3 m_MovementDirection;
+        private Camera m_MainCamera;
+
+        #endregion
+
+        #region Unity Methods
 
         private void Awake()
         {
             if (m_PlayerData == null)
             {
-                Debug.LogWarning("PlayerProperties is null");
+                Debug.LogError("[PlayerController] PlayerProperties is null. Please assign it in the Inspector.");
                 return;
             }
 
-            if (m_mainCamera == null)
+            if (m_SphereCollider == null)
             {
-                m_mainCamera = Camera.main;
+                Debug.LogError($"{nameof(SphereCollider)} reference is missing on {gameObject.name}!");
+            }
+
+            if (m_MainCamera == null)
+            {
+                m_MainCamera = Camera.main;
+
+                if (m_MainCamera == null)
+                {
+                    Debug.LogError("[PlayerController] Main camera not found in the scene.");
+                    return;
+                }
             }
 
             SetInteractionRange();
-            m_currentInteractableList = new List<IInteractable>();
+            m_CurrentInteractableList = new List<IInteractable>();
         }
 
         private void OnEnable()
         {
-            EventManager.OnInteract += Interact;
+            EventManager.OnInteract += HandleInteract;
         }
 
         private void OnDisable()
         {
-            EventManager.OnInteract -= Interact;
+            EventManager.OnInteract -= HandleInteract;
         }
 
         private void Update()
@@ -60,74 +80,75 @@ namespace BasicTouch.Runtime.Player
             Move();
         }
 
-        private void CalculateMoveDirection()
-        {
-            Vector2 inputDirection = m_PlayerInputHandler.MoveInput;
-
-            Vector3 cameraForward = m_mainCamera.transform.forward;
-            Vector3 cameraRight = m_mainCamera.transform.right;
-
-            cameraForward.y = 0;
-            cameraRight.y = 0;
-
-            m_movementDirection = (inputDirection.y * cameraForward + inputDirection.x * cameraRight).normalized;
-        }
-
-        private void Move()
-        {
-            if (m_Rigidbody == null)
-            {
-                Debug.LogWarning("Rigidbody is null");
-                return;
-            }
-
-            Vector3 movement = m_movementDirection * m_PlayerData.MoveSpeed;
-            m_Rigidbody.linearVelocity = new Vector3(movement.x, m_Rigidbody.linearVelocity.y, movement.z);
-        }
-
         private void OnTriggerEnter(Collider other)
         {
-            var currentInteract = other.GetComponent<IInteractable>();
-
-            if (currentInteract != null)
+            if (other.TryGetComponent(out IInteractable currentInteract))
             {
-                if (!m_currentInteractableList.Contains(currentInteract))
+                if (!m_CurrentInteractableList.Contains(currentInteract))
                 {
-                    m_currentInteractableList.Add(currentInteract);
-                    m_currentInteractable = GetClosestInteractable();
+                    m_CurrentInteractableList.Add(currentInteract);
+                    m_CurrentInteractable = GetClosestInteractable();
                 }
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            var currentInteract = other.GetComponent<IInteractable>();
-            if (currentInteract != null)
+            if (other.TryGetComponent(out IInteractable currentInteract))
             {
-                if (m_currentInteractableList.Contains(currentInteract))
+                if (m_CurrentInteractableList.Contains(currentInteract))
                 {
-                    m_currentInteractableList.Remove(currentInteract);
+                    m_CurrentInteractableList.Remove(currentInteract);
 
-                    if (m_currentInteractableList.Count == 0)
+                    if (m_CurrentInteractableList.Count == 0)
                     {
-                        m_currentInteractable = null;
+                        m_CurrentInteractable = null;
                         HideInteractionText();
                     }
                 }
             }
         }
 
-        private void Interact()
+        #endregion
+
+        #region Methods
+
+        private void CalculateMoveDirection()
         {
-            if (m_currentInteractable == null)
+            Vector2 inputDirection = m_PlayerInputHandler.MoveInput;
+
+            Vector3 cameraForward = m_MainCamera.transform.forward;
+            Vector3 cameraRight = m_MainCamera.transform.right;
+
+            cameraForward.y = 0;
+            cameraRight.y = 0;
+
+            m_MovementDirection = (inputDirection.y * cameraForward + inputDirection.x * cameraRight).normalized;
+        }
+
+        private void Move()
+        {
+            if (m_Rigidbody == null)
             {
                 return;
             }
 
-            m_currentInteractable.Interact();
-            if (m_currentInteractable is IInteractableInstant)
+            Vector3 movement = m_MovementDirection * m_PlayerData.MoveSpeed;
+            m_Rigidbody.linearVelocity = new Vector3(movement.x, m_Rigidbody.linearVelocity.y, movement.z);
+        }
+
+
+        private void HandleInteract()
+        {
+            if (m_CurrentInteractable == null)
             {
-                m_currentInteractableList.Remove(m_currentInteractable);
+                return;
+            }
+
+            m_CurrentInteractable.Interact();
+            if (m_CurrentInteractable is IInteractableInstant)
+            {
+                m_CurrentInteractableList.Remove(m_CurrentInteractable);
                 HideInteractionText();
             }
             else
@@ -138,20 +159,20 @@ namespace BasicTouch.Runtime.Player
 
         private IInteractable GetClosestInteractable()
         {
-            if (m_currentInteractableList.Count == 0)
+            if (m_CurrentInteractableList.Count == 0)
             {
                 return null;
             }
 
-            if (m_currentInteractableList.Count == 1)
+            if (m_CurrentInteractableList.Count == 1)
             {
-                return m_currentInteractableList[0];
+                return m_CurrentInteractableList[0];
             }
 
             float closestDistance = float.MaxValue;
             IInteractable closestInteractable = null;
 
-            foreach (IInteractable interactable in m_currentInteractableList)
+            foreach (IInteractable interactable in m_CurrentInteractableList)
             {
                 if (interactable == null)
                 {
@@ -175,14 +196,14 @@ namespace BasicTouch.Runtime.Player
 
             if (closestInteractable == null)
             {
-                m_currentInteractable = null;
+                m_CurrentInteractable = null;
                 HideInteractionText();
                 return;
             }
 
-            if (closestInteractable != m_currentInteractable)
+            if (closestInteractable != m_CurrentInteractable)
             {
-                m_currentInteractable = closestInteractable;
+                m_CurrentInteractable = closestInteractable;
             }
 
             ShowInteractionText();
@@ -190,15 +211,15 @@ namespace BasicTouch.Runtime.Player
 
         private void ShowInteractionText()
         {
-            if (m_currentInteractable != null)
+            if (m_CurrentInteractable != null && UIManager.Instance != null)
             {
-                UIManager.Instance.ShowInteractionText(m_currentInteractable.GetInteractText());
+                UIManager.Instance.ShowInteractionText(m_CurrentInteractable.GetInteractText());
             }
         }
 
         private void HideInteractionText()
         {
-            if (m_currentInteractable == null)
+            if (UIManager.Instance != null)
             {
                 UIManager.Instance.HideInteractionText();
             }
@@ -209,4 +230,6 @@ namespace BasicTouch.Runtime.Player
             m_SphereCollider.radius = m_InteractionRange;
         }
     }
+
+    #endregion
 }

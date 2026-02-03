@@ -14,7 +14,7 @@
 
 ---
 
-## Prompt 1: Multiple Collider algılayan yöntemler
+## Prompt 1: Detecting Multiple Colliders in Range
 
 **Araç:** Gemini
 **Tarih/Saat:** 2026.02.03 21.07
@@ -55,30 +55,54 @@ Aklımda zaten multiple colliderları tespit edecek birkaç fikir vardı. Sadece
 
 ---
 
-## Prompt 2: [Konu Başlığı]
+## Prompt 2: C# Script Refactoring to Ludu Arts Standards
 
-**Araç:** [ChatGPT-4 / Claude / GitHub Copilot]
-**Tarih/Saat:** YYYY-MM-DD HH:MM
+**Araç:** Gemini
+**Tarih/Saat:** 2026-02-04 02:08
 
 **Prompt:**
 ```
-[Yazdığınız prompt]
+Birkaç döküman vereceğim ve hepsini inceledikten sonra Ludu Arts C# conventionlarına göre sana atacağım scripti refactor et
+
+Private field'lar için m_ prefix'i kullanın
+
+Private static field'lar için s_ prefix'i kullanın
+
+Private const'lar için k_ prefix'i kullanın
+
+Region'lar standart sırayla kullanılmalı, eklemeyi unutma
+
+Public API'ler XML documentation içermeli
+
+Silent bypass yapılmamalı (hatalar loglanmalı)
+
+[scriptimi direct buraya kopyaladım ] ( bu promptta PlayerController scriptimi gösterdim.
 ```
 
 **Alınan Cevap (Özet):**
 ```
-[Cevap özeti]
+Yapılan Değişiklikler:
+
+İsimlendirme: m_currentInteractableList gibi camelCase olan private field'lar, PascalCase formatına (m_CurrentInteractableList) dönüştürüldü (Ludu Arts m_ + PascalCase kuralı).
+
+Region Yapısı: Kod; Fields, Unity Methods ve Methods region'larına bölündü.
+
+XML Documentation: Public class için zorunlu olan XML dokümantasyonu eklendi.
+
+Güvenlik: TryGetComponent kullanımı ile optimizasyon sağlandı ve null check'ler güçlendirildi.
+
+Format: Allman style (süslü parantez alt satırda) uygulandı.
 ```
 
 **Nasıl Kullandım:**
-- [ ] Direkt kullandım
+- [X] Direkt kullandım
 - [ ] Adapte ettim
 - [ ] Reddettim
 
 **Açıklama:**
 > [Açıklama]
 
----
+Gözden kaçmış, unuttuğum yanlış yazılmış olanları ludu arts standartlarına göre scripti yapay zekaya refactor ettirdim. Yaklaşık 50 dakikam kaldığından birkaç scriptime de ek olarak aynı promptu uygulayacağım.
 
 ## Prompt 3: ...
 
