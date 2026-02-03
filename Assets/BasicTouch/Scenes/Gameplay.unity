@@ -696,18 +696,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 693861192848998174, guid: 9452c14d0cecbad4b9428ba1d87b6bbe, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 693861192848998174, guid: 9452c14d0cecbad4b9428ba1d87b6bbe, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 693861192848998174, guid: 9452c14d0cecbad4b9428ba1d87b6bbe, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2991537805228794598, guid: 9452c14d0cecbad4b9428ba1d87b6bbe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.53

@@ -156,6 +156,7 @@ MonoBehaviour:
   m_DoorLockState: 0
   m_RotatePoint: {fileID: 5413474584515796707}
   m_RotateAngle: -90
+  m_RotateDuration: 2
 --- !u!1 &7491560762421418637
 GameObject:
   m_ObjectHideFlags: 0

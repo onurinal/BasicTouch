@@ -1,4 +1,5 @@
 ﻿using BasicTouch.Runtime.Core;
+using DG.Tweening;
 using UnityEngine;
 
 namespace BasicTouch.Runtime.Interactables
@@ -7,8 +8,10 @@ namespace BasicTouch.Runtime.Interactables
     {
         [SerializeField] private DoorLockState m_DoorLockState;
 
+        [Header("Door Animation Settings")]
         [SerializeField] private Transform m_RotatePoint;
         [SerializeField] private float m_RotateAngle;
+        [SerializeField] private float m_RotateDuration;
 
         private bool m_isOpen;
 
@@ -16,7 +19,8 @@ namespace BasicTouch.Runtime.Interactables
         {
             m_isOpen = !m_isOpen;
 
-            m_RotatePoint.transform.rotation = m_isOpen ? Quaternion.Euler(0, m_RotateAngle, 0) : Quaternion.Euler(0, 0, 0);
+            var angle = m_isOpen ? -m_RotateAngle : 0;
+            m_RotatePoint.DORotate(new Vector3(0, angle, 0), m_RotateDuration);
         }
 
         public string GetInteractText()
@@ -27,6 +31,11 @@ namespace BasicTouch.Runtime.Interactables
             }
 
             return m_isOpen ? "Press E to Open " : "Press E to Close ";
+        }
+
+        public Transform GetTransform()
+        {
+            return transform;
         }
     }
 }

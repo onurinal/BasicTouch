@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BasicTouch.Runtime.Manager;
+using UnityEngine;
 
 namespace BasicTouch.Runtime.Player
 {
@@ -15,6 +16,7 @@ namespace BasicTouch.Runtime.Player
         private void Update()
         {
             UpdateMoveInput();
+            UpdateInteractInput();
         }
 
         private void UpdateMoveInput()
@@ -23,6 +25,14 @@ namespace BasicTouch.Runtime.Player
             m_verticalInput = Input.GetAxisRaw(k_Vertical);
 
             MoveInput = new Vector2(m_horizontalInput, m_verticalInput);
+        }
+
+        private void UpdateInteractInput()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                EventManager.TriggerOnInteract();
+            }
         }
     }
 }
