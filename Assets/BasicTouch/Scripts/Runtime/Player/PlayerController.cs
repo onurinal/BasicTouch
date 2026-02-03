@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BasicTouch.Runtime.Core;
-using BasicTouch.Runtime.Manager;
+using BasicTouch.Runtime.Event;
+using BasicTouch.Runtime.UI;
 using UnityEngine;
 
 namespace BasicTouch.Runtime.Player
@@ -16,7 +17,7 @@ namespace BasicTouch.Runtime.Player
         [SerializeField] private SphereCollider m_SphereCollider;
         [SerializeField] private float m_InteractionRange;
         private List<IInteractable> m_currentInteractableList;
-        private IInteractable m_currentInteractableToggle;
+        private IInteractable m_currentInteractable;
 
         private Vector3 m_movementDirection;
         private Camera m_mainCamera;
@@ -51,6 +52,7 @@ namespace BasicTouch.Runtime.Player
         private void Update()
         {
             CalculateMoveDirection();
+            UpdateClosestInteractable();
         }
 
         private void FixedUpdate()
@@ -92,6 +94,7 @@ namespace BasicTouch.Runtime.Player
                 if (!m_currentInteractableList.Contains(currentInteract))
                 {
                     m_currentInteractableList.Add(currentInteract);
+                    m_currentInteractable = GetClosestInteractable();
                 }
             }
         }
@@ -104,20 +107,26 @@ namespace BasicTouch.Runtime.Player
                 if (m_currentInteractableList.Contains(currentInteract))
                 {
                     m_currentInteractableList.Remove(currentInteract);
+
+                    if (m_currentInteractableList.Count == 0)
+                    {
+                        m_currentInteractable = null;
+                        HideInteractionText();
+                    }
                 }
             }
         }
 
         private void Interact()
         {
-            if (m_currentInteractableList.Count > 0)
+            if (m_currentInteractable != null)
             {
-                m_currentInteractableToggle = FindClosestInteractable();
-                m_currentInteractableToggle.Interact();
+                m_currentInteractable.Interact();
+                UIManager.Instance.UpdateInteractionText(m_currentInteractable.GetInteractText());
             }
         }
 
-        private IInteractable FindClosestInteractable()
+        private IInteractable GetClosestInteractable()
         {
             if (m_currentInteractableList.Count == 1)
             {
@@ -126,7 +135,7 @@ namespace BasicTouch.Runtime.Player
             else
             {
                 float closestDistance = float.MaxValue;
-                IInteractable closestInteractableToggle = null;
+                IInteractable closestInteractable = null;
                 foreach (IInteractable interactable in m_currentInteractableList)
                 {
                     if (interactable != null)
@@ -135,12 +144,47 @@ namespace BasicTouch.Runtime.Player
                         if (closestDistance > newDistance)
                         {
                             closestDistance = newDistance;
-                            closestInteractableToggle = interactable;
+                            closestInteractable = interactable;
                         }
                     }
                 }
 
-                return closestInteractableToggle;
+                return closestInteractable;
+            }
+        }
+
+        private void UpdateClosestInteractable()
+        {
+            if (m_currentInteractableList.Count == 0)
+            {
+                return;
+            }
+
+            IInteractable closestInteractable = GetClosestInteractable();
+            if (m_currentInteractable != null && closestInteractable != m_currentInteractable)
+            {
+                m_currentInteractable = closestInteractable;
+            }
+
+            if (m_currentInteractable != null)
+            {
+                ShowInteractionText();
+            }
+        }
+
+        private void ShowInteractionText()
+        {
+            if (m_currentInteractable != null)
+            {
+                UIManager.Instance.ShowInteractionText(m_currentInteractable.GetInteractText());
+            }
+        }
+
+        private void HideInteractionText()
+        {
+            if (m_currentInteractable == null)
+            {
+                UIManager.Instance.HideInteractionText();
             }
         }
 

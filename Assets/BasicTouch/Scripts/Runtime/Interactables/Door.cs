@@ -13,14 +13,17 @@ namespace BasicTouch.Runtime.Interactables
         [SerializeField] private float m_RotateAngle;
         [SerializeField] private float m_RotateDuration;
 
-        public bool IsOn { get; set; }
+        public bool IsOn { get; set; } = false;
 
         public void Interact()
         {
+            if (m_DoorLockState == DoorLockState.Locked)
+            {
+            }
+
             IsOn = !IsOn;
 
-            var angle = IsOn ? m_RotateAngle : 0;
-            m_RotatePoint.DORotate(new Vector3(0, angle, 0), m_RotateDuration);
+            PlayAnimation();
         }
 
         public string GetInteractText()
@@ -30,12 +33,18 @@ namespace BasicTouch.Runtime.Interactables
                 return IsOn ? null : "Locked - Key Required";
             }
 
-            return IsOn ? "Press E to Open " : "Press E to Close ";
+            return IsOn ? "Close the door " : "Open the door ";
         }
 
         public Transform GetTransform()
         {
             return transform;
+        }
+
+        private void PlayAnimation()
+        {
+            var angle = IsOn ? m_RotateAngle : 0;
+            m_RotatePoint.DORotate(new Vector3(0, angle, 0), m_RotateDuration);
         }
     }
 }

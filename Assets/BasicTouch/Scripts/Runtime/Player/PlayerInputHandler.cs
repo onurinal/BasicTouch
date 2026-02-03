@@ -1,4 +1,4 @@
-﻿using BasicTouch.Runtime.Manager;
+﻿using BasicTouch.Runtime.Event;
 using UnityEngine;
 
 namespace BasicTouch.Runtime.Player

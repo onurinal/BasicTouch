@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BasicTouch.Runtime.Manager
+namespace BasicTouch.Runtime.Event
 {
     public static class EventManager
     {
