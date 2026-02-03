@@ -1,31 +1,22 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BasicTouch.Runtime.Player
 {
     public class PlayerInputHandler : MonoBehaviour
     {
-        private PlayerInputActions m_inputActions;
+        private const string k_Horizontal = "Horizontal";
+        private const string k_Vertical = "Vertical";
+
+        private float m_horizontalInput;
+        private float m_verticalInput;
 
         public Vector2 MoveInput { get; private set; }
 
-        public event Action OnInteract;
 
-        private void OnEnable()
+        private void Awake()
         {
-            if (m_inputActions == null)
-            {
-                m_inputActions = new PlayerInputActions();
-            }
-
-            m_inputActions.Enable();
-            m_inputActions.Player.Interact.performed += ctx => OnInteract?.Invoke();
         }
 
-        private void OnDisable()
-        {
-            m_inputActions?.Disable();
-        }
 
         private void Update()
         {
@@ -34,7 +25,10 @@ namespace BasicTouch.Runtime.Player
 
         private void UpdateMoveInput()
         {
-            MoveInput = m_inputActions.Player.Move.ReadValue<Vector2>();
+            m_horizontalInput = Input.GetAxisRaw(k_Horizontal);
+            m_verticalInput = Input.GetAxisRaw(k_Vertical);
+
+            MoveInput = new Vector2(m_horizontalInput, m_verticalInput);
         }
     }
 }

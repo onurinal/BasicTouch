@@ -36,6 +36,7 @@ namespace BasicTouch.Runtime.Player
         private void Move()
         {
             Vector2 direction = m_playerInputHandler.MoveInput;
+            direction.Normalize();
             Vector2 movement = direction * m_playerProperties.MoveSpeed;
             m_rigidbody.linearVelocity = new Vector3(movement.x, m_rigidbody.linearVelocity.y, movement.y);
         }
