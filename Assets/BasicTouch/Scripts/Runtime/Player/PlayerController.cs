@@ -9,7 +9,7 @@ namespace BasicTouch.Runtime.Player
     public class PlayerController : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private PlayerProperties m_PlayerProperties;
+        [SerializeField] private PlayerProperties m_PlayerData;
         [SerializeField] private PlayerInputHandler m_PlayerInputHandler;
         [SerializeField] private Rigidbody m_Rigidbody;
 
@@ -24,7 +24,7 @@ namespace BasicTouch.Runtime.Player
 
         private void Awake()
         {
-            if (m_PlayerProperties == null)
+            if (m_PlayerData == null)
             {
                 Debug.LogWarning("PlayerProperties is null");
                 return;
@@ -81,7 +81,7 @@ namespace BasicTouch.Runtime.Player
                 return;
             }
 
-            Vector3 movement = m_movementDirection * m_PlayerProperties.MoveSpeed;
+            Vector3 movement = m_movementDirection * m_PlayerData.MoveSpeed;
             m_Rigidbody.linearVelocity = new Vector3(movement.x, m_Rigidbody.linearVelocity.y, movement.z);
         }
 
@@ -119,57 +119,73 @@ namespace BasicTouch.Runtime.Player
 
         private void Interact()
         {
-            if (m_currentInteractable != null)
+            if (m_currentInteractable == null)
             {
-                m_currentInteractable.Interact();
-                UIManager.Instance.UpdateInteractionText(m_currentInteractable.GetInteractText());
+                return;
+            }
+
+            m_currentInteractable.Interact();
+            if (m_currentInteractable is IInteractableInstant)
+            {
+                m_currentInteractableList.Remove(m_currentInteractable);
+                HideInteractionText();
+            }
+            else
+            {
+                ShowInteractionText();
             }
         }
 
         private IInteractable GetClosestInteractable()
         {
+            if (m_currentInteractableList.Count == 0)
+            {
+                return null;
+            }
+
             if (m_currentInteractableList.Count == 1)
             {
                 return m_currentInteractableList[0];
             }
-            else
+
+            float closestDistance = float.MaxValue;
+            IInteractable closestInteractable = null;
+
+            foreach (IInteractable interactable in m_currentInteractableList)
             {
-                float closestDistance = float.MaxValue;
-                IInteractable closestInteractable = null;
-                foreach (IInteractable interactable in m_currentInteractableList)
+                if (interactable == null)
                 {
-                    if (interactable != null)
-                    {
-                        var newDistance = Vector3.Distance(transform.position, interactable.GetTransform().position);
-                        if (closestDistance > newDistance)
-                        {
-                            closestDistance = newDistance;
-                            closestInteractable = interactable;
-                        }
-                    }
+                    continue;
                 }
 
-                return closestInteractable;
+                var newDistance = Vector3.Distance(transform.position, interactable.GetTransform().position);
+                if (closestDistance > newDistance)
+                {
+                    closestDistance = newDistance;
+                    closestInteractable = interactable;
+                }
             }
+
+            return closestInteractable;
         }
 
         private void UpdateClosestInteractable()
         {
-            if (m_currentInteractableList.Count == 0)
+            IInteractable closestInteractable = GetClosestInteractable();
+
+            if (closestInteractable == null)
             {
+                m_currentInteractable = null;
+                HideInteractionText();
                 return;
             }
 
-            IInteractable closestInteractable = GetClosestInteractable();
-            if (m_currentInteractable != null && closestInteractable != m_currentInteractable)
+            if (closestInteractable != m_currentInteractable)
             {
                 m_currentInteractable = closestInteractable;
             }
 
-            if (m_currentInteractable != null)
-            {
-                ShowInteractionText();
-            }
+            ShowInteractionText();
         }
 
         private void ShowInteractionText()

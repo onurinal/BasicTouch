@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4656c8aad24afaaa3beb292ee5f1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerProperties: {fileID: 11400000, guid: a0c124ffba01c724a97b8776989564a7, type: 2}
+  m_PlayerData: {fileID: 11400000, guid: a0c124ffba01c724a97b8776989564a7, type: 2}
   m_PlayerInputHandler: {fileID: 6667950479180947332}
   m_Rigidbody: {fileID: 693861192848998174}
   m_SphereCollider: {fileID: 5454883828634009106}
@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e93b1218f5b4aafa8e14afc053b6bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_InteractButton: 101
 --- !u!54 &693861192848998174
 Rigidbody:
   m_ObjectHideFlags: 0

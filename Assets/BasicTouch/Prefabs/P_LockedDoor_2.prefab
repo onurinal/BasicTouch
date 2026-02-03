@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6d928803e75794b489ff18f04776d83b, type: 2}
+  - {fileID: 2100000, guid: c9ebf58979ed34647b197bea791de223, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1400475909387854935}
   - component: {fileID: 8156887601437417941}
   m_Layer: 0
-  m_Name: P_LockedDoor
+  m_Name: P_LockedDoor_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DoorLockState: 0
+  m_RequiredKey: {fileID: 11400000, guid: f5407444abf979146bf8989e360c5082, type: 2}
+  m_PlayerInventory: {fileID: 11400000, guid: e0f76104d1750a64ba8e0b921386daba, type: 2}
   m_RotatePoint: {fileID: 5413474584515796707}
   m_RotateAngle: -90
   m_RotateDuration: 2
