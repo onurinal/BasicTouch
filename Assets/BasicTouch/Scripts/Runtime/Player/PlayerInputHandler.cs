@@ -5,6 +5,8 @@ namespace BasicTouch.Runtime.Player
 {
     public class PlayerInputHandler : MonoBehaviour
     {
+        [SerializeField] private KeyCode m_InteractButton;
+
         private const string k_Horizontal = "Horizontal";
         private const string k_Vertical = "Vertical";
 
@@ -29,7 +31,7 @@ namespace BasicTouch.Runtime.Player
 
         private void UpdateInteractInput()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(m_InteractButton))
             {
                 EventManager.TriggerOnInteract();
             }

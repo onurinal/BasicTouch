@@ -16,7 +16,7 @@ namespace BasicTouch.Runtime.Player
         [SerializeField] private SphereCollider m_SphereCollider;
         [SerializeField] private float m_InteractionRange;
         private List<IInteractable> m_currentInteractableList;
-        private IInteractable m_currentInteractable;
+        private IInteractable m_currentInteractableToggle;
 
         private Vector3 m_movementDirection;
         private Camera m_mainCamera;
@@ -112,8 +112,8 @@ namespace BasicTouch.Runtime.Player
         {
             if (m_currentInteractableList.Count > 0)
             {
-                m_currentInteractable = FindClosestInteractable();
-                m_currentInteractable.Interact();
+                m_currentInteractableToggle = FindClosestInteractable();
+                m_currentInteractableToggle.Interact();
             }
         }
 
@@ -126,7 +126,7 @@ namespace BasicTouch.Runtime.Player
             else
             {
                 float closestDistance = float.MaxValue;
-                IInteractable closestInteractable = null;
+                IInteractable closestInteractableToggle = null;
                 foreach (IInteractable interactable in m_currentInteractableList)
                 {
                     if (interactable != null)
@@ -135,12 +135,12 @@ namespace BasicTouch.Runtime.Player
                         if (closestDistance > newDistance)
                         {
                             closestDistance = newDistance;
-                            closestInteractable = interactable;
+                            closestInteractableToggle = interactable;
                         }
                     }
                 }
 
-                return closestInteractable;
+                return closestInteractableToggle;
             }
         }
 
