@@ -12,12 +12,6 @@ namespace BasicTouch.Runtime.Player
 
         public Vector2 MoveInput { get; private set; }
 
-
-        private void Awake()
-        {
-        }
-
-
         private void Update()
         {
             UpdateMoveInput();

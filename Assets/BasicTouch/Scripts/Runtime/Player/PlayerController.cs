@@ -51,11 +51,14 @@ namespace BasicTouch.Runtime.Player
 
         private void Move()
         {
-            if (m_movementDirection != Vector3.zero)
+            if (m_rigidbody == null)
             {
-                Vector3 movement = m_movementDirection * m_PlayerProperties.MoveSpeed;
-                m_rigidbody.linearVelocity = new Vector3(movement.x, m_rigidbody.linearVelocity.y, movement.z);
+                Debug.LogWarning("Rigidbody is null");
+                return;
             }
+
+            Vector3 movement = m_movementDirection * m_PlayerProperties.MoveSpeed;
+            m_rigidbody.linearVelocity = new Vector3(movement.x, m_rigidbody.linearVelocity.y, movement.z);
         }
     }
 }
