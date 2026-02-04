@@ -35,7 +35,6 @@ git clone https://github.com/onurinal/BasicTouch.git
 | WASD | Hareket |
 | Mouse | Bakış yönü |
 | E | Etkileşim |
-| [Diğer] | [Açıklama] |
 
 ### Test Senaryoları
 
@@ -73,7 +72,6 @@ git clone https://github.com/onurinal/BasicTouch.git
 | Pattern | Kullanım Yeri | Neden |
 |---------|---------------|-------|
 | [Observer] | [Event system] | [Basit bir EventManager sistemi kullandım, scriptler arası bağımlılıkları azaltmak için.]
-| [State] | [Door states] | [Basit bir Enum ile Locked/Unlocked state ekledim. Bool değişkeni yeterli olsa da ileride başka stateler eklenmesi gerektiğinde Enum ile daha rahat kontrol edebiliriz. ]
 
 ## Ludu Arts Standartlarına Uyum
 
