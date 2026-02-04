@@ -48,10 +48,10 @@ How it works: You add a Sphere Collider to your player, check "Is Trigger," and 
 - [X] Reddettim (kullanmadım)
 
 **Açıklama:**
-Aklımda zaten multiple colliderları tespit edecek birkaç fikir vardı. Sadece bana önereceği daha iyi yöntem var mı yok mu diye sordum. Şimdilik en basit haliyle kafamdaki düşünceyle bir list aracılığıyla OnTriggerEnter ve OnTriggerExit sayesinde current interactables objelerini güncelliyorum ve en yakındaki interactable objeyi seçiyorum FindClosestInteractable methoduyla.
+> [Aklımda zaten multiple colliderları tespit edecek birkaç fikir vardı. Sadece bana önereceği daha iyi yöntem var mı yok mu diye sordum. Şimdilik en basit haliyle kafamdaki düşünceyle bir list aracılığıyla OnTriggerEnter ve OnTriggerExit sayesinde current interactables objelerini güncelliyorum ve en yakındaki interactable objeyi seçiyorum FindClosestInteractable methoduyla.]
 
 **Yapılan Değişiklikler (adapte ettiyseniz):**
-> [LLM cevabını nasıl değiştirdiğinizi açıklayın]
+> [-]
 
 ---
 
