@@ -72,6 +72,8 @@ git clone https://github.com/onurinal/BasicTouch.git
 | Pattern | Kullanım Yeri | Neden |
 |---------|---------------|-------|
 | [Observer] | [Event system] | [Basit bir EventManager sistemi kullandım, scriptler arası bağımlılıkları azaltmak için.]
+| [State - Enum Based] | [Door states] | [State pattern basit hali. Bir Enum ile Locked/Unlocked state ekledim. Bool değişkeni yeterli olsa da ileride başka stateler eklenmesi gerektiğinde Enum ile daha rahat kontrol edebiliriz. ]
+| [Singleton] | [UI Manager] | [Case süresi az kaldığından singleton'a başvurmak zorunda kaldım. Daha hızlı ve daha kolay erişebilmek adına yoksa elimden geldiğince kullanmamaya çalışırım.]
 
 ## Ludu Arts Standartlarına Uyum
 
