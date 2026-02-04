@@ -13,7 +13,6 @@ namespace BasicTouch.Runtime.Interactables
     {
         #region Fields
 
-        // Serialized private instance fields
         [Header("Door Settings")]
         [SerializeField] private DoorLockState m_DoorLockState;
         [SerializeField] private ItemProperties m_RequiredKey;
@@ -24,7 +23,6 @@ namespace BasicTouch.Runtime.Interactables
         [SerializeField] private float m_RotateAngle = 90f;
         [SerializeField] private float m_RotateDuration = 2f;
 
-        // Non-serialized private instance fields
         private string m_CurrentInteractText;
 
         #endregion
@@ -91,7 +89,6 @@ namespace BasicTouch.Runtime.Interactables
         /// <summary>
         /// Oyuncunun anahtara sahip olup olmadığını kontrol eder.
         /// </summary>
-        /// <returns>Anahtar varsa true, yoksa false.</returns>
         private bool HasRequiredKey()
         {
             if (m_PlayerInventory == null)
@@ -110,7 +107,7 @@ namespace BasicTouch.Runtime.Interactables
         }
 
         /// <summary>
-        /// Envanterdeki anahtarı kullanır (siler).
+        /// Envanterdeki anahtarı kullanır.
         /// </summary>
         private void ConsumeKey()
         {
@@ -139,12 +136,10 @@ namespace BasicTouch.Runtime.Interactables
         /// </summary>
         public void Interact()
         {
-            // Kilitli kapı mantığı
             if (m_DoorLockState == DoorLockState.Locked)
             {
                 bool hasKey = HasRequiredKey();
 
-                // Kapı kapalı ve anahtar var - aç ve anahtarı kullan
                 if (hasKey && !IsOn)
                 {
                     IsOn = true;
@@ -159,7 +154,6 @@ namespace BasicTouch.Runtime.Interactables
                     return;
                 }
 
-                // Anahtar yok ve kapı kapalı - etkileşim yapma
                 if (!hasKey && !IsOn)
                 {
                     m_CurrentInteractText = m_RequiredKey != null
@@ -169,7 +163,6 @@ namespace BasicTouch.Runtime.Interactables
                 }
             }
 
-            // Normal toggle davranışı (kilitsiz kapılar veya açık kilitli kapılar için)
             IsOn = !IsOn;
             PlayAnimation();
         }
@@ -199,7 +192,6 @@ namespace BasicTouch.Runtime.Interactables
             }
             else
             {
-                // Kilitsiz kapı için metin
                 m_CurrentInteractText = IsOn ? "Press to close door" : "Press to open door";
             }
 
@@ -209,7 +201,6 @@ namespace BasicTouch.Runtime.Interactables
         /// <summary>
         /// Bu objenin Transform component'ini döndürür.
         /// </summary>
-        /// <returns>Transform component.</returns>
         public Transform GetTransform()
         {
             return transform;
