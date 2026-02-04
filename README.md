@@ -1,4 +1,4 @@
-# Interaction System - [Adınız Soyadınız]
+# Interaction System - [Onur İnal]
 
 > Ludu Arts Unity Developer Intern Case
 
@@ -6,10 +6,10 @@
 
 | Bilgi | Değer |
 |-------|-------|
-| Unity Versiyonu | 20XX.X.XXf1 |
+| Unity Versiyonu | 6000.0.23f1 |
 | Render Pipeline | Built-in / URP / HDRP |
-| Case Süresi | X saat |
-| Tamamlanma Oranı | %XX |
+| Case Süresi | 12 saat |
+| Tamamlanma Oranı | %50 |
 
 ---
 
@@ -17,11 +17,11 @@
 
 1. Repository'yi klonlayın:
 ```bash
-git clone https://github.com/[username]/[repo-name].git
+git clone https://github.com/onurinal/BasicTouch.git
 ```
 
 2. Unity Hub'da projeyi açın
-3. `Assets/[ProjectName]/Scenes/TestScene.unity` sahnesini açın
+3. `Assets/BasicTouch/Scenes/Gameplay.unity` sahnesini açın
 4. Play tuşuna basın
 
 ---
@@ -49,15 +49,6 @@ git clone https://github.com/[username]/[repo-name].git
    - Anahtarı bulun ve toplayın
    - Kilitli kapıya geri dönün, şimdi açılabilir olmalı
 
-3. **Switch Test:**
-   - Switch'e yaklaşın ve aktive edin
-   - Bağlı nesnenin (kapı/ışık vb.) tetiklendiğini görün
-
-4. **Chest Test:**
-   - Sandığa yaklaşın
-   - E'ye basılı tutun, progress bar dolsun
-   - Sandık açılsın ve içindeki item alınsın
-
 ---
 
 ## Mimari Kararlar
@@ -69,13 +60,13 @@ git clone https://github.com/[username]/[repo-name].git
 ```
 
 **Neden bu yapıyı seçtim:**
-> [Açıklama]
+> Zamanım yetmedi açıklama kısmına
 
 **Alternatifler:**
-> [Düşündüğünüz diğer yaklaşımlar ve neden seçmediniz]
+> Zamanım yetmedi açıklama kısmına
 
 **Trade-off'lar:**
-> [Bu yaklaşımın avantaj ve dezavantajları]
+> Zamanım yetmedi açıklama kısmına
 
 ### Kullanılan Design Patterns
 
@@ -83,9 +74,9 @@ git clone https://github.com/[username]/[repo-name].git
 |---------|---------------|-------|
 | [Observer] | [Event system] | [Açıklama] |
 | [State] | [Door states] | [Açıklama] |
-| [vb.] | | |
 
----
+
+Zamanım yetmedi açıklama kısmına
 
 ## Ludu Arts Standartlarına Uyum
 
@@ -100,7 +91,7 @@ git clone https://github.com/[username]/[repo-name].git
 | Region sırası doğru | [x] / [ ] | |
 | XML documentation | [x] / [ ] | |
 | Silent bypass yok | [x] / [ ] | |
-| Explicit interface impl. | [x] / [ ] | |
+| Explicit interface impl. | [] / [x] | |
 
 ### Naming Convention
 
@@ -109,7 +100,7 @@ git clone https://github.com/[username]/[repo-name].git
 | P_ prefix (Prefab) | [x] / [ ] | P_Door, P_Chest |
 | M_ prefix (Material) | [x] / [ ] | M_Door_Wood |
 | T_ prefix (Texture) | [x] / [ ] | |
-| SO isimlendirme | [x] / [ ] | |
+| SO isimlendirme | [] / [x] | |
 
 ### Prefab Kuralları
 
@@ -123,7 +114,7 @@ git clone https://github.com/[username]/[repo-name].git
 ### Zorlandığım Noktalar
 > [Standartları uygularken zorlandığınız yerler]
 
----
+açıkçası ilk başta dökümanları okurken baya zaman kaybettim diyebilirim. Ardından daha fazla zaman kaybetmemek adına aklıam gelen en basit yapıları eklemeye çalışırken door interaction sistemini ekledikten sonra ve anahtar ekleme kısmına gelince neredeyse zamanımın kalmadığını anladım. 
 
 ## Tamamlanan Özellikler
 
@@ -142,18 +133,18 @@ git clone https://github.com/[username]/[repo-name].git
 - [x] / [ ] Interactable Objects
   - [x] / [ ] Door (locked/unlocked)
   - [x] / [ ] Key Pickup
-  - [x] / [ ] Switch/Lever
-  - [x] / [ ] Chest/Container
+  - [] / [x] Switch/Lever
+  - [] / [x] Chest/Container
 
 - [x] / [ ] UI Feedback
   - [x] / [ ] Interaction prompt
   - [x] / [ ] Dynamic text
-  - [x] / [ ] Hold progress bar
-  - [x] / [ ] Cannot interact feedback
+  - [] / [x] Hold progress bar
+  - [] / [x] Cannot interact feedback
 
 - [x] / [ ] Simple Inventory
   - [x] / [ ] Key toplama
-  - [x] / [ ] UI listesi
+  - [] / [x] UI listesi
 
 ### Bonus (Nice to Have)
 
