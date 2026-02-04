@@ -104,7 +104,7 @@ Format: Allman style (süslü parantez alt satırda) uygulandı...
 **Açıklama:**
 > [Gözden kaçmış, unuttuğum yanlış yazılmış olanları ludu arts standartlarına göre scripti yapay zekaya refactor ettirdim. Yaklaşık 50 dakikam kaldığından birkaç scriptime de ek olarak aynı promptu uygulayacağım. Neredeyse çoğu scripte uygulamaya çalıştım. Son scriptleri refactor ederken yaklaşık 2-3 dakikam kaldığından daha fazla göz atıp değişikliğe vs. gidemedim.]
 
-Prompt3-4-5-6 vb yukarıdaki 2. prompt ile benzer olacağından böyle bir açıklama yapma gereği duydum. Onun dışında yapay zekaya çok başvurduğumu söyeleyemem. Case study'i yapabilecek düzeyde olduğumu düşünüyordum ancak dökümantasyonlara ve case study'i iyice inceledikten sonra çok süre kaybettiğimi farkettim. Yapay zekaya da chest, switch interaction sistemleri yazdırmak istemedim açıkçası, copy-paste yapmak istemediğimden başvurmadım.
+> [Not: Prompt3-4-5-6 vb yukarıdaki 2. prompt ile benzer olacağından böyle bir açıklama yapma gereği duydum. Onun dışında yapay zekaya çok başvurduğumu söyeleyemem. Case study'i yapabilecek düzeyde olduğumu düşünüyordum ancak dökümantasyonlara ve case study'i iyice inceledikten sonra çok süre kaybettiğimi farkettim. Yapay zekaya da chest, switch interaction sistemleri yazdırmak istemedim açıkçası, copy-paste yapmak istemediğimden başvurmadım. ]
 
 ## Notlar
 
