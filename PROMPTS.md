@@ -76,7 +76,7 @@ Public API'ler XML documentation içermeli
 
 Silent bypass yapılmamalı (hatalar loglanmalı)
 
-[scriptimi direct buraya kopyaladım ] ( bu promptta PlayerController scriptimi gösterdim.
+[script en son kısımda atıldı ]
 ```
 
 **Alınan Cevap (Özet):**
@@ -91,7 +91,9 @@ XML Documentation: Public class için zorunlu olan XML dokümantasyonu eklendi.
 
 Güvenlik: TryGetComponent kullanımı ile optimizasyon sağlandı ve null check'ler güçlendirildi.
 
-Format: Allman style (süslü parantez alt satırda) uygulandı.
+Format: Allman style (süslü parantez alt satırda) uygulandı...
+
+[gösterdiği script]
 ```
 
 **Nasıl Kullandım:**
@@ -100,9 +102,9 @@ Format: Allman style (süslü parantez alt satırda) uygulandı.
 - [ ] Reddettim
 
 **Açıklama:**
-> [Açıklama]
+> [Gözden kaçmış, unuttuğum yanlış yazılmış olanları ludu arts standartlarına göre scripti yapay zekaya refactor ettirdim. Yaklaşık 50 dakikam kaldığından birkaç scriptime de ek olarak aynı promptu uygulayacağım. Neredeyse çoğu scripte uygulamaya çalıştım. Son scriptleri refactor ederken yaklaşık 2-3 dakikam kaldığından daha fazla göz atıp değişikliğe vs. gidemedim.]
 
-Gözden kaçmış, unuttuğum yanlış yazılmış olanları ludu arts standartlarına göre scripti yapay zekaya refactor ettirdim. Yaklaşık 50 dakikam kaldığından birkaç scriptime de ek olarak aynı promptu uygulayacağım.
+Prompt3-4-5-6 vb yukarıdaki 2. prompt ile benzer olacağından böyle bir açıklama yapma gereği duydum. Onun dışında yapay zekaya çok başvurduğumu söyeleyemem. Case study'i yapabilecek düzeyde olduğumu düşünüyordum ancak dökümantasyonlara ve case study'i iyice inceledikten sonra çok süre kaybettiğimi farkettim. Yapay zekaya da chest, switch interaction sistemleri yazdırmak istemedim açıkçası, copy-paste yapmak istemediğimden başvurmadım.
 
 ## Notlar
 
