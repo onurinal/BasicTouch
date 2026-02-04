@@ -143,8 +143,8 @@ namespace BasicTouch.Runtime.Interactables
                 if (hasKey && !IsOn)
                 {
                     IsOn = true;
-                    PlayAnimation();
                     ConsumeKey();
+                    PlayAnimation();
                     m_CurrentInteractText = string.Empty;
                     return;
                 }
