@@ -84,8 +84,8 @@ git clone https://github.com/onurinal/BasicTouch.git
 | m_ prefix (private fields) | [x] / [ ] | |
 | s_ prefix (private static) | [x] / [ ] | |
 | k_ prefix (private const) | [x] / [ ] | |
-| Region kullanımı | [x] / [ ] |Bir ya da iki class da refactor etmeyi unuttum. |
-| Region sırası doğru | [x] / [ ] |Bir ya da iki class da refactor etmeyi unuttum. |
+| Region kullanımı | [x] / [ ] |Bir ya da iki class da refactor etmeyi unuttum. Sürem yetmediğinden değişiklik yapmıyorum.|
+| Region sırası doğru | [x] / [ ] |Bir ya da iki class da refactor etmeyi unuttum. Sürem yetmediğinden değişiklik yapmıyorum. |
 | XML documentation | [x] / [ ] | |
 | Silent bypass yok | [x] / [ ] | |
 | Explicit interface impl. | [] / [x] | Sürem yetmediğinden buna dikkat edemedim. |
@@ -94,7 +94,7 @@ git clone https://github.com/onurinal/BasicTouch.git
 
 | Kural | Uygulandı | Örnekler |
 |-------|-----------|----------|
-| P_ prefix (Prefab) | [x] / [] | P_LockedDoor1, P_Player | [Not: 2 adet prefabe prefix eklemeyi unuttum, sürem yetmediğinden değişiklik yapamıyorum.]
+| P_ prefix (Prefab) | [x] / [] | P_LockedDoor1, P_Player Not: 2 adet prefabe prefix eklemeyi unuttum, sürem yetmediğinden değişiklik yapamıyorum. |
 | M_ prefix (Material) | [x] / [ ] | M_Ground, M_LockedDoor1 |
 | T_ prefix (Texture) | [] / [x] | Texture kullanılmadı. |
 | SO isimlendirme | [] / [x] | Daha fazla sürem kalmadığından SO isimlendirmesine bakamadım. |
