@@ -94,10 +94,10 @@ git clone https://github.com/onurinal/BasicTouch.git
 
 | Kural | Uygulandı | Örnekler |
 |-------|-----------|----------|
-| P_ prefix (Prefab) | [x] / [ ] | P_Door, P_Chest |
-| M_ prefix (Material) | [x] / [ ] | M_Door_Wood |
-| T_ prefix (Texture) | [x] / [ ] | |
-| SO isimlendirme | [] / [x] | |
+| P_ prefix (Prefab) | [x] / [ ] | P_LockedDoor1, P_Player |
+| M_ prefix (Material) | [x] / [ ] | M_Ground, M_LockedDoor1 |
+| T_ prefix (Texture) | [] / [x] | Texture kullanılmadı. |
+| SO isimlendirme | [] / [x] | Daha fazla sürem kalmadığından SO isimlendirmesine bakamadım. |
 
 ### Prefab Kuralları
 
@@ -105,7 +105,7 @@ git clone https://github.com/onurinal/BasicTouch.git
 |-------|-----------|--------|
 | Transform (0,0,0) | [x] / [ ] | |
 | Pivot bottom-center | [x] / [ ] | |
-| Collider tercihi | [x] / [ ] | Box > Capsule > Mesh |
+| Collider tercihi | [x] / [ ] | Genellikle box collider kullanıldı fakat anahtar ve interaction range için sphere collider kullandım. Sürem yetmediğinden buralarda düzenlemeye gidemedim. |
 | Hierarchy yapısı | [x] / [ ] | |
 
 ### Zorlandığım Noktalar
