@@ -40,7 +40,7 @@ git clone https://github.com/onurinal/BasicTouch.git
 ### Test Senaryoları
 
 1. **Door Test:**
-   - Kapıya yaklaşın, "Press E to Open" mesajını görün
+   - Kapıya yaklaşın, "Press to open door" mesajını görün
    - E'ye basın, kapı açılsın
    - Tekrar basın, kapı kapansın
 
@@ -60,23 +60,20 @@ git clone https://github.com/onurinal/BasicTouch.git
 ```
 
 **Neden bu yapıyı seçtim:**
-> Zamanım yetmedi açıklama kısmına
+> Interface yapısını kullanarak mimariyi oluşturdum. Bu yapıyı kullanmamın sebebi daha modular, daha scalable olması. İleride herhangi bir interactable obje eklenmesi gerektiğinde IInteractable interface türlerinden bir tanesini kalıtım alarak basit bir şekilde interactable olduğunu belirtmiş oluyoruz. Böylece player etkileşime girdiğinde bunun hangi class olduğunu bilmesine gerek kalmadan bu objenin etkileşime girebilen bir obje olduğunu bilmesi yeterli oluyor.
 
 **Alternatifler:**
-> Zamanım yetmedi açıklama kısmına
+> Interface mimarisi dışında aklıma şimdilik abstract base class geldi. Abstract ile interaction bir base class oluşturup ardından door, key gibi itemler bu abstract class'ı kalıtım alıp interactable item olduklarını anlayabiliriz. Interface kullanarak interaction mimarisi yapmak çok daha kolay olduğunu düşündüğümden bunu kullanmadım.
 
 **Trade-off'lar:**
-> Zamanım yetmedi açıklama kısmına
+> Projeyi yaparken zamanım kalmadığı için trade off' un açıkçası ne olduğunu bilmiyordum. README kısmını güncelledikten sonra ne olduğunu öğreneceğim.
 
 ### Kullanılan Design Patterns
 
 | Pattern | Kullanım Yeri | Neden |
 |---------|---------------|-------|
-| [Observer] | [Event system] | [Açıklama] |
-| [State] | [Door states] | [Açıklama] |
-
-
-Zamanım yetmedi açıklama kısmına
+| [Observer] | [Event system] | [Basit bir EventManager sistemi kullandım, scriptler arası bağımlılıkları azaltmak için.]
+| [State] | [Door states] | [Basit bir Enum ile Locked/Unlocked state ekledim. Bool değişkeni yeterli olsa da ileride başka stateler eklenmesi gerektiğinde Enum ile daha rahat kontrol edebiliriz. ]
 
 ## Ludu Arts Standartlarına Uyum
 
