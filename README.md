@@ -7,7 +7,7 @@
 | Bilgi | Değer |
 |-------|-------|
 | Unity Versiyonu | 6000.0.23f1 |
-| Render Pipeline | Built-in / URP / HDRP |
+| Render Pipeline | Built-in / URP |
 | Case Süresi | 12 saat |
 | Tamamlanma Oranı | %50 |
 
