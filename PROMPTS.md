@@ -7,10 +7,10 @@
 
 | Bilgi | Değer |
 |-------|-------|
-| Toplam prompt sayısı | X |
-| Kullanılan araçlar | ChatGPT / Claude / Copilot |
-| En çok yardım alınan konular | [liste] |
-| Tahmini LLM ile kazanılan süre | X saat |
+| Toplam prompt sayısı | 10 Not: 2.prompt ile 10. prompta kadar aynı fakat script farklı |
+| Kullanılan araçlar | ChatGPT / Claude / Gemini |
+| En çok yardım alınan konular | [Refactor] |
+| Tahmini LLM ile kazanılan süre | 1-2 saat |
 
 ---
 
