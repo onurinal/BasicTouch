@@ -7,7 +7,7 @@
 
 | Bilgi | Değer |
 |-------|-------|
-| Toplam prompt sayısı | 10 Not: 2.prompt ile 10. prompta kadar aynı fakat script farklı |
+| Toplam prompt sayısı | 10 - Not: 2.prompt ile 10. prompta kadar text aynı fakat atılan script farklı |
 | Kullanılan araçlar | ChatGPT / Claude / Gemini |
 | En çok yardım alınan konular | [Refactor] |
 | Tahmini LLM ile kazanılan süre | 1-2 saat |
