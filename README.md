@@ -157,55 +157,74 @@ açıkçası ilk başta dökümanları okurken baya zaman kaybettim diyebilirim.
 ## Bilinen Limitasyonlar
 
 ### Tamamlanamayan Özellikler
-1. [Özellik] - [Neden tamamlanamadı]
-2. [Özellik] - [Neden]
+1. [Switch/Lever Interaction] - [Sürem yetmedi. Prefab veya kendi sistemini yazacak kadar vaktim kalmadı maalesef.]
+2. [Chest/Container Interaction] - [Aynı şekilde sürem yetmedi.]
 
 ### Bilinen Bug'lar
-1. [Bug açıklaması] - [Reproduce adımları]
-2. [Bug]
+1. Not: Herhangi bir bug ile test ettiğim süre boyunca karşılaşmadım.
 
 ### İyileştirme Önerileri
-1. [Öneri] - [Nasıl daha iyi olabilirdi]
-2. [Öneri]
+1. [Player Inventory] - [Çok daha iyi yazılabilirdi, sırf daha hızlı bitirebilmek, ufak da olsa öyle bir küçük info elimde tutabileyim diye scriptable object olarak açmıştım ve Door.cs, Key.cs gibi classların player inventory e bağımlı olmaması gerekiyor. Çok daha farklı bir şekilde player inventory den bilgi ya da player inventory ve door ile bağlantıyı kurabilecek fazladan bir script yapılabilirdi. Bu itemleri tutan listeyi public static tarzında bir class ulaştırabilirdi mesela, şimdilik aklıma gelen bu. ]
+2. [Animasyonlar] - Animasyonlar çok basit şekilde eklendi ve daha iyi yapılabilirdi. Ses vs. eklenebilirdi.
+3. [UI] - Interaction text için ortada değil de en altta göstermek istiyordum zamanım yetmedi. Ek olarak locked door için eğer ki player anahtara sahip değilse texte bir animasyon verip kullanıcının dikkatini çekecek şekilde yapılabilirdi, daha hoş gözükmesi adına. Son olarak eklediğim objelerin hiçbirinde herhangi bir texture vs. yok. Bu konuda internetten free model, texture vs. bulup projeye eklenebilirdi.
 
 ---
 
 ## Ekstra Özellikler
 
 Zorunlu gereksinimlerin dışında eklediklerim:
-
-1. **[Özellik Adı]**
-   - Açıklama: [Ne yapıyor]
-   - Neden ekledim: [Motivasyon]
-
-2. **[Özellik Adı]**
-   - ...
-
 ---
 
 ## Dosya Yapısı
 
 ```
 Assets/
-├── [ProjectName]/
+├── [BasicTouch]/
 │   ├── Scripts/
 │   │   ├── Runtime/
 │   │   │   ├── Core/
-│   │   │   │   ├── IInteractable.cs
-│   │   │   │   └── ...
+│   │   │   │   ├── DoorLockState.cs
+│   │   │   │   └── IInteractable.cs
+│   │   │   │   └── IInteractableHold.cs
+│   │   │   │   └── IInteractableInstant.cs
+│   │   │   │   └── IInteractableToggle.cs
+│   │   │   │   └── ItemProperties.cs
+│   │   │   ├── Event/
+│   │   │   │   ├── EventManager.cs
 │   │   │   ├── Interactables/
 │   │   │   │   ├── Door.cs
-│   │   │   │   └── ...
+│   │   │   │   └── Key.cs
 │   │   │   ├── Player/
-│   │   │   │   └── ...
+│   │   │   │   └── PlayerController.cs
+│   │   │   │   └── PlayerInputHandler.cs
+│   │   │   │   └── PlayerInteractionDetector.cs
+│   │   │   │   └── PlayerInventory.cs
+│   │   │   │   └── PlayerProperties.cs
 │   │   │   └── UI/
-│   │   │       └── ...
+│   │   │       └── UIManager.cs
 │   │   └── Editor/
 │   ├── ScriptableObjects/
+│       └── Key_1.asset
+│       └── Key_2.asset
+│       └── PlayerData.asset
+│       └── PlayerInventory.asset
 │   ├── Prefabs/
+│       └── P_LockedDoor_1.prefab
+│       └── P_LockedDoor_2.prefab
+│       └── P_Player.prefab
+│       └── P_UnlockedDoor.prefab
+│       └── Key_1.prefab
+│       └── Key_2.prefab
 │   ├── Materials/
+│       └── M_Ground.mat
+│       └── M_Key_1.mat
+│       └── M_Key_2.mat
+│       └── M_LockedDoor1.mat
+│       └── M_LockedDoor2.mat
+│       └── M_Player.mat
+│       └── M_UnlockedDoor.mat
 │   └── Scenes/
-│       └── TestScene.unity
+│       └── Gameplay.unity
 ├── Docs/
 │   ├── CSharp_Coding_Conventions.md
 │   ├── Naming_Convention_Kilavuzu.md
@@ -221,10 +240,10 @@ Assets/
 
 | Bilgi | Değer |
 |-------|-------|
-| Ad Soyad | [Adınız] |
-| E-posta | [email@example.com] |
-| LinkedIn | [profil linki] |
-| GitHub | [github.com/username] |
+| Ad Soyad | [Onur İnal] |
+| E-posta | [onurinaldev@gmail.com] |
+| LinkedIn | [https://www.linkedin.com/in/onurinall] |
+| GitHub | [https://github.com/onurinal] |
 
 ---
 
