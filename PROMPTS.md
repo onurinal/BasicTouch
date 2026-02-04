@@ -104,30 +104,6 @@ Format: Allman style (süslü parantez alt satırda) uygulandı.
 
 Gözden kaçmış, unuttuğum yanlış yazılmış olanları ludu arts standartlarına göre scripti yapay zekaya refactor ettirdim. Yaklaşık 50 dakikam kaldığından birkaç scriptime de ek olarak aynı promptu uygulayacağım.
 
-## Prompt 3: ...
-
-[Diğer promptlar için aynı formatı kullanın]
-
----
-
-## Genel Değerlendirme
-
-### LLM'in En Çok Yardımcı Olduğu Alanlar
-1. [Alan 1]
-2. [Alan 2]
-3. [Alan 3]
-
-### LLM'in Yetersiz Kaldığı Alanlar
-1. [Alan 1 - neden yetersiz kaldığı]
-2. [Alan 2]
-
-### LLM Kullanımı Hakkında Düşüncelerim
-> [Bu case boyunca LLM kullanarak neler öğrendiniz?
-> LLM'siz ne kadar sürede bitirebilirdiniz?
-> Gelecekte LLM'i nasıl daha etkili kullanabilirsiniz?]
-
----
-
 ## Notlar
 
 - Her önemli LLM etkileşimini kaydedin
