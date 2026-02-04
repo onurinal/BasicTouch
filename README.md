@@ -111,7 +111,7 @@ git clone https://github.com/onurinal/BasicTouch.git
 ### Zorlandığım Noktalar
 > [Standartları uygularken zorlandığınız yerler]
 
-açıkçası ilk başta dökümanları okurken baya zaman kaybettim diyebilirim. Ardından daha fazla zaman kaybetmemek adına aklıam gelen en basit yapıları eklemeye çalışırken door interaction sistemini ekledikten sonra ve anahtar ekleme kısmına gelince neredeyse zamanımın kalmadığını anladım. 
+İlk başta yapıyı düşünürken bir tık zorlandım. Sebebi de case study'i incelerken 3 farklı interaction type isteniyordu. Tek tipli interaction sistemini daha önceden çalıştığımdan dolayı kısa bir süre sonra bu 3 tipli interaction mimarisini nasıl kuracağıma karar verdim. Ek olarak dökümanlardaki conventionlar okurken çok zaman kaybettiğimi sonradan farkettim. 3 farklı interaction kısmı içinse bir süre sonra hepsini base bir interaction interface kısmına alabileceğim aklıma geldi ve öyle uyguladım. IInteractionToggle ve IInteractionInstant kısmı gayet iyi çalışıyor ancak IInteractionHold kısmına zamanım yetmediğimden hold interaction sistemini ekleyemedim. Bu 12 saat süresince zamanımı çok iyi değerlendiremediğimi düşünüyorum. Case study aslında zor değildi, fakat yapay zekayı çok daha iyi kullanabileceğimi sonradan farkettim. Her ne kadar iş işten geçmiş olsa da, sistemleri parça parça yapay zekadan destek alarak geliştirebilirdim. Ancak bu konuda projenin birçok kısmını yapay zekaya yazdırmanın olumsuz bir izlenim yaratacağını düşündüğümden elimden geldiğince çoğu sistemi kendim yazmaya çalıştım. Sonuç olarak zaman konusunu iyi yönetemediğimi söyleyebilirim.
 
 ## Tamamlanan Özellikler
 
